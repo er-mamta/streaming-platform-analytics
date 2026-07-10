@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "streampulse-analytics"
+version = "1.0.0"
+description = "A streaming analytics lakehouse for playback quality and engagement metrics."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Mamta Singhal"}]
+keywords = ["data-engineering", "spark", "streaming", "delta-lake", "kafka", "analytics"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+stream = ["kafka-python-ng==2.2.3"]
+spark = ["pyspark==3.5.3", "delta-spark==3.2.0"]
+dashboard = ["pandas==2.2.3", "streamlit==1.41.1"]
+dev = ["ruff==0.8.4"]
+all = [
+  "kafka-python-ng==2.2.3",
+  "pyspark==3.5.3",
+  "delta-spark==3.2.0",
+  "pandas==2.2.3",
+  "streamlit==1.41.1",
+  "ruff==0.8.4",
+]
+
+[project.scripts]
+streampulse-generate = "streaming_analytics.generator:main"
+streampulse-run-local = "streaming_analytics.local_pipeline:main"
+streampulse-produce = "streaming_analytics.producer:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
