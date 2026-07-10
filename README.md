@@ -181,7 +181,7 @@ streaming-platform-analytics/
 ├── data/sample/events.ndjson     # Committed reproducible fixture
 ├── sql/analytics_queries.sql     # BigQuery analysis examples
 ├── tests/                        # Contract, metric, and pipeline tests
-├── docs/                         # Dictionary, milestones, interview guide
+├── docs/                         # Data dictionary and implementation milestones
 ├── .github/workflows/ci.yml      # Tests plus reproducible demo
 └── docker-compose.yml            # Redpanda broker and console
 ```
@@ -189,17 +189,6 @@ streaming-platform-analytics/
 ## Implementation milestones
 
 The [implementation plan](docs/IMPLEMENTATION_MILESTONES.md) defines six measurable milestones: contract and fixtures, durable ingestion, trusted Silver, business-ready Gold, operations/observability, and cloud scale testing. Each includes a definition of done and the engineering signal it demonstrates.
-
-## Interview walkthrough
-
-The [interview guide](docs/INTERVIEW_GUIDE.md) includes a concise project story, design tradeoffs, failure scenarios, and an explicit scope statement. The strongest discussion points are:
-
-- event-time correctness versus state-store cost;
-- exact versus approximate distinct counts in low-latency aggregation;
-- raw replayability versus retention cost and privacy risk;
-- hot-key mitigation for premiere traffic;
-- streaming jobs versus scheduled control-plane work;
-- why late events require upserts instead of append-only Gold output.
 
 ## Tests and CI
 
