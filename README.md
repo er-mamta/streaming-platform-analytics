@@ -67,7 +67,7 @@ See the full [data dictionary](docs/DATA_DICTIONARY.md), including exact formula
 Requirements: Python 3.10+ and `make`. No broker, JVM, or Python packages are needed for this path.
 
 ```bash
-git clone https://github.com/<your-username>/streaming-platform-analytics.git
+git clone https://github.com/er-mamta/streaming-platform-analytics.git
 cd streaming-platform-analytics
 make demo
 make test
